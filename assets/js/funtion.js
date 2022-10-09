@@ -1,5 +1,5 @@
 let name = "";
-let time = "";
+// let time = "";
 
 let socket = io();
 
@@ -23,9 +23,10 @@ form.addEventListener('submit', function (e) {
         let date = new Date();
         let hour = date.getHours();
         let minutes = date.getMinutes();
-        time = `${hour}:${minutes}`
+        
+        let msg = `<div class="user"> <span class="name bold">${name}</span><span class="time">${hour}:${minutes}</span></div>: <span class="msg">${input.value}</span>`
 
-        socket.emit('chat message', input.value);
+        socket.emit('chat message', msg);
         input.value = '';
     }
 });
@@ -47,7 +48,7 @@ socket.on('new member', function (guest) {
 
 socket.on('chat message', function (msg) {
     let item = document.createElement('li');
-    item.innerHTML += `<div class="user"> <span class="name bold">${name}</span><span class="time">${time}</span></div>: <span class="msg">${msg}</span>`;
+    item.innerHTML += msg;
     messages.appendChild(item);
     window.scrollTo(0, document.body.scrollHeight);
 });

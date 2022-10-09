@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-pt">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Socket.IO chat</title>
+    <title>Chat Online</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -16,10 +16,12 @@
     </div>
     <div id="chat" class="hidden">
       <ul id="messages"></ul>
-      <form id="sendMessage">
-        <input id="input" autocomplete="off" /><button>Send</button>
+      <form id="sendMessage" autocomplete="off">
+        <input id="input"/><button>Send</button>
       </form>
     </div>
+
+    <p id="author">Autor: Paulo Rodrigues</p>
     
     <script src="/socket.io/socket.io.js"></script>
     <script src="assets/js/funtion.js"></script>
